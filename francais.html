@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>migration clandestine · Images d'ici, images d'ailleurs | Sensibilisation</title>
+    <!-- Google Fonts pour une typographie plus lisible et moderne -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (gratuite) pour icônes expressives -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #fef9f0 0%, #fff4e6 100%);
+            color: #1e2a2f;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Conteneur principal */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* ========== HEADER / INTRO ========== */
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 1rem 1.5rem;
+            background: rgba(255, 248, 235, 0.7);
+            border-radius: 3rem;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #c4450c, #e07a2c, #b83204);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-sub {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #b45a2b;
+            background: #fff0e2;
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            margin-bottom: 1rem;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 1rem auto 0;
+            font-size: 1.1rem;
+            color: #2c3e2f;
+            background: #ffffffcc;
+            padding: 1rem 1.8rem;
+            border-radius: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .badge-harqa {
+            display: inline-block;
+            background: #1e3a3f;
+            color: #ffe3c9;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* ========== GRILLE CARTES (thématiques) ========== */
+        .section-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem 0;
+            padding-left: 0.75rem;
+            border-left: 6px solid #e06c2e;
+            color: #2d3e40;
+        }
+
+        .section-sub {
+            margin-bottom: 2rem;
+            color: #5f4c3b;
+            font-weight: 400;
+            font-size: 1.05rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 2rem;
+            overflow: hidden;
+            transition: all 0.25s ease;
+            box-shadow: 0 12px 22px -12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ffe1c4;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-icon {
+            background: #fce7d4;
+            padding: 1.5rem 0 0.8rem;
+            text-align: center;
+            font-size: 2.8rem;
+            color: #c95a1a;
+        }
+
+        .card-content {
+            padding: 1.2rem 1.5rem 1.8rem;
+            flex: 1;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #b14912;
+        }
+
+        .card p {
+            color: #2c3e2f;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .card p i {
+            color: #e07a2c;
+            width: 1.4rem;
+            margin-top: 0.2rem;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #ffd7b5, transparent);
+        }
+
+        /* section solutions spécifique (carte en couleur douce) */
+        .solutions-grid .card {
+            background: #fffbf5;
+            border-left: 8px solid #2b7a62;
+        }
+
+        /* pied de page / conclusion */
+        .conclusion-box {
+            margin: 3rem 0 2rem;
+            background: #1e2a2f;
+            border-radius: 2.5rem;
+            padding: 2rem 2rem;
+            color: #fbead5;
+            text-align: center;
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+        }
+
+        .conclusion-box h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ffbc7a;
+        }
+
+        .conclusion-box p {
+            font-size: 1.15rem;
+            max-width: 750px;
+            margin: 0.8rem auto;
+        }
+
+        .conclusion-box i {
+            margin: 0 6px;
+            color: #ffaa55;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            font-size: 0.85rem;
+            color: #7b6b5a;
+            border-top: 1px solid #ffddbc;
+        }
+
+        /* citations ou encart image symbolique */
+        .image-quote {
+            background: #ffefe2;
+            border-radius: 2rem;
+            padding: 1rem 2rem;
+            margin: 1rem 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .image-quote span:first-child {
+            font-size: 2rem;
+        }
+
+        @media (max-width: 680px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .container {
+                padding: 1.2rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Introduction : ici / ailleurs + harqa -->
+    <div class="hero">
+        <div class="badge-harqa">
+            <i class="fas fa-boat"></i> Phénomène social · migration clandestine
+        </div>
+        <h1>📘 🌍 Images d’ici, images d’ailleurs <br> et la <span style="color:#d45c1a;">migration clandestine</span></h1>
+        <div class="hero-sub">
+            <i class="fas fa-map-marker-alt"></i> Tunisie – ici &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fas fa-globe-europe"></i> Ailleurs – rêve ou mirage ?
+        </div>
+        <div class="intro-text">
+            <i class="fas fa-lightbulb" style="color:#e07a2c;"></i> 
+            La <strong>migration clandestine</strong> (harqa) traduit la comparaison entre la vie en Tunisie et la vie rêvée à l’étranger. 
+            Beaucoup de jeunes pensent que la vie ailleurs est meilleure, mais quels sont les vrais ressorts, les risques, et les alternatives ?
+        </div>
+    </div>
+
+    <!-- SECTION I · Pourquoi les jeunes pensent à quitter leur pays -->
+    <div class="section-title">
+        <i class="fas fa-question-circle"></i> I. Pourquoi les jeunes pensent à quitter leur pays ?
+    </div>
+    <div class="section-sub">
+        <i class="fas fa-chart-line"></i> Entre rêve européen et réalités tunisiennes : des moteurs profonds.
+    </div>
+    <div class="cards-grid">
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-briefcase"></i></div>
+            <div class="card-content">
+                <h3>💼 Chômage & manque de travail</h3>
+                <p><i class="fas fa-times-circle"></i> Les jeunes ne trouvent pas facilement un emploi stable.</p>
+                <p><i class="fas fa-chart-simple"></i> Taux de chômage élevé chez les diplômés.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-coins"></i></div>
+            <div class="card-content">
+                <h3>💸 Difficultés économiques</h3>
+                <p><i class="fas fa-money-bill-wave"></i> La vie est chère, les salaires restent faibles.</p>
+                <p><i class="fas fa-cart-shopping"></i> Pouvoir d’achat en baisse, inflation.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-frown-open"></i></div>
+            <div class="card-content">
+                <h3>😔 Manque d'espoir pour l'avenir</h3>
+                <p><i class="fas fa-eye-slash"></i> Ils ne voient pas un futur stable dans leur pays.</p>
+                <p><i class="fas fa-brain"></i> Sentiment d’impasse et d’injustice.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fab fa-instagram"></i></div>
+            <div class="card-content">
+                <h3>🌍 L'image positive de l’étranger</h3>
+                <p><i class="fas fa-mobile-alt"></i> Les réseaux sociaux montrent une vie facile ailleurs.</p>
+                <p><i class="fas fa-filter"></i> Comparaison permanente, idéalisation.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION II · Les dangers quand ils ne peuvent pas faire la harqa -->
+    <div class="section-title">
+        <i class="fas fa-skull-crossbones"></i> II. Les dangers quand ils ne peuvent pas faire la harqa
+    </div>
+    <div class="section-sub">
+        <i class="fas fa-heart-broken"></i> L'impossibilité de migrer expose à des risques psychosociaux graves.
+    </div>
+    <div class="cards-grid">
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-wine-bottle"></i></div>
+            <div class="card-content">
+                <h3>🍷 L’alcool</h3>
+                <p><i class="fas fa-tint"></i> Consommation pour oublier les problèmes, fuir l’ennui et l’échec perçu.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-capsules"></i></div>
+            <div class="card-content">
+                <h3>💊 La drogue</h3>
+                <p><i class="fas fa-cloud-moon"></i> Usage de stupéfiants pour fuir la réalité et calmer l’anxiété.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-rainbow"></i></div>
+            <div class="card-content">
+                <h3>😔 Dépression & solitude</h3>
+                <p><i class="fas fa-dove"></i> Isolement, perte de sens, troubles anxieux, état dépressif chronique.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-hand-peace"></i></div>
+            <div class="card-content">
+                <h3>⚠️ Comportements dangereux</h3>
+                <p><i class="fas fa-motorcycle"></i> Actes risqués, désinhibition, violences ou auto‑mise en danger.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-book"></i></div>
+            <div class="card-content">
+                <h3>🚫 Perte de motivation</h3>
+                <p><i class="fas fa-door-closed"></i> Abandon des études, de l’emploi ou de tout projet constructif.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION III · Solutions possibles -->
+    <div class="section-title">
+        <i class="fas fa-seedling"></i> III. Les solutions possibles
+    </div>
+    <div class="section-sub">
+        <i class="fas fa-hand-holding-heart"></i> Redonner l'espoir en Tunisie, pour que l'ailleurs ne soit plus un mirage.
+    </div>
+    <div class="cards-grid solutions-grid">
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-industry"></i></div>
+            <div class="card-content">
+                <h3>🏭 Créer des emplois</h3>
+                <p>Offrir plus d’opportunités professionnelles aux jeunes, soutenir l’entrepreneuriat local.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="card-content">
+                <h3>📚 Améliorer éducation & formation</h3>
+                <p>Former aux métiers d’avenir, lier université et marché du travail.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-home"></i></div>
+            <div class="card-content">
+                <h3>🏡 Améliorer les conditions de vie</h3>
+                <p>Réduire les inégalités territoriales, accès aux soins, logement décent.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-chalkboard-user"></i></div>
+            <div class="card-content">
+                <h3>🧠 Sensibiliser les jeunes</h3>
+                <p>Expliquer les dangers réels de la harqa (naufrages, traite, dettes), montrer des alternatives concrètes.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Encart visuel "Images d'ici et d'ailleurs" symbolique -->
+    <div class="image-quote">
+        <span>📸 🇹🇳</span> 
+        <span><i class="fas fa-arrow-right"></i> <strong>Image d'ici :</strong> Médina, oliveraies, plages, mais aussi files d’attente devant les espaces publics.</span>
+        <span>🌍 ➔</span>
+        <span><strong>Image d'ailleurs :</strong> rues luisantes, travail bien payé… mais solitude, xénophobie et parfois précarité.</span>
+        <span>🤳 <i class="fas fa-hashtag"></i> </span>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="conclusion-box">
+        <h2>🔴 Conclusion · Repenser l’Avenir</h2>
+        <p><i class="fas fa-waveform"></i> La <strong>harqa</strong> est un phénomène dangereux, souvent causé par les difficultés économiques, le chômage et une image idéalisée de l’étranger.</p>
+        <p>💡 La solution durable est d’<strong>améliorer la vie en Tunisie</strong> — emplois, éducation, perspectives — pour redonner de l’espoir aux jeunes. La migration ne doit pas être un piège mortel, mais un choix éclairé. Construire un pays où il fait bon vivre, c’est la meilleure barrière contre cette phénome .</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;"><i class="fas fa-heart" style="color:#ffaa66;"></i> « Ici peut devenir un ailleurs désirable. »</p>
+    </div>
+
+    <!-- petite frise d’info + rappel des dangers et soutien -->
+    <div style="background: #f8ede2; border-radius: 1.5rem; padding: 1rem 1.5rem; margin: 1rem 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px;">
+        <div><i class="fas fa-ship" style="color:#bc4a0c;"></i> <strong>Harqa = risques réels</strong> : noyades, mafias, dettes, traumas.</div>
+        <div><i class="fas fa-people-arrows"></i> <strong>Ensemble</strong> : informer, accompagner, investir dans la jeunesse.</div>
+        <div><i class="fas fa-chalkboard"></i> Lutter contre les stéréotypes « ailleurs paradis ».</div>
+    </div>
+
+    <div class="footer-note">
+        <i class="far fa-comment-dots"></i> La lecon de notre presentation :
+        <br>📢 « La mer n’est pas une route, l’avenir se construit aussi sur sa terre »
+    </div>
+</div>
+</body>
